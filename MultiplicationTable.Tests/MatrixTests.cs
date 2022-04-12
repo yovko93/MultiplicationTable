@@ -58,34 +58,5 @@ namespace MultiplicationTable.Tests
             Assert.DoesNotThrow(() => matrix.PrintMatrix());
         }
 
-        [Test]
-        public void PrintRowShouldWorkProperly()
-        {
-            MethodInfo method = matrix.GetType().GetMethod("PrintRow", BindingFlags.NonPublic | BindingFlags.Instance);
-
-            int row = 1;
-            int[,] currentMatrix = new int[,] { { 1, 2, 3 }, { 2, 4, 6 }, { 3, 6, 9 } };
-
-            object[] parms = new object[2] { row, currentMatrix };
-
-            var printRow = method.Invoke(matrix, parms);
-
-            Assert.That(printRow, Is.Null);
-        }
-
-        [Test]
-        public void ReturnMatrixShouldWorkProperly()
-        {
-            MethodInfo method = matrix.GetType().GetMethod("ReturnMatrix", BindingFlags.NonPublic | BindingFlags.Instance);
-
-            int[,] currentMatrix = new int[primeNumbers.Length + 1, primeNumbers.Length + 1];
-
-            object[] parms = new object[1] { currentMatrix };
-
-            var returnMatrix = method.Invoke(matrix, parms);
-
-            Assert.That(returnMatrix, Is.Not.Null);
-            Assert.AreEqual(currentMatrix, returnMatrix);
-        }
     }
 }
