@@ -27,21 +27,21 @@ namespace MultiplicationTable
                 {
                     Console.Write("  ");
 
-                    for (int col = 1; col < matrix.GetLength(1); col++)
-                    {
-                        Console.Write($"{matrix[row, col]}  ");
-                    }
-
+                    PrintRow(row, matrix);
                     continue;
                 }
 
                 Console.Write($"{matrix[row, 0]} ");
 
-                for (int col = 1; col < matrix.GetLength(1); col++)
-                {
-                    Console.Write($"{matrix[row, col]}  ");
-                }
+                PrintRow(row, matrix);
+            }
+        }
 
+        private void PrintRow(int row, int[,] matrix)
+        {
+            for (int col = 1; col < matrix.GetLength(1); col++)
+            {
+                Console.Write($"{matrix[row, col]}  ");
             }
         }
 
