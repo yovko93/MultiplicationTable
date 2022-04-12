@@ -4,8 +4,8 @@ namespace MultiplicationTable
 {
     public class Matrix
     {
-        private int[] primeNumbers;
-        private int number;
+        private readonly int[] primeNumbers;
+        private readonly int number;
 
         public Matrix(int[] primeNumbers)
         {
